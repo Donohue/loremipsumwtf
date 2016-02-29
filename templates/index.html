@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Lorem Ipsum – What Matters About What Doesn't Matter</title>
+    <meta property="og:url" content="http://loremipsum.wtf"/>
+    <meta property="og:title" content="Lorem Ipsum"/>
+    <meta property="og:description" content="What Matters About What Doesn't Matter"/>
+    <meta property="og:image" content="http://loremipsum.wtf/static/img/newogimage.png"/>
+    <meta name="google-site-verification" content="SqI0ytoCCjU4FoCsU2WPY0zJNcfgsODQf8BUH9sx21c" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+</head>
+<body>
+    <div class="signup_box">
+        <img src="/static/img/fucking_logo.png"/>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="/subscribe" method="POST">
+            <input placeholder="FULL NAME" type="text" value="" name="name">
+            <input placeholder="EMAIL" type="email" value="" name="email">
+            <input type="submit" value="SUBSCRIBE" name="subscribe">
+            <a class="previous_issues"
+               href="http://us10.campaign-archive1.com/home/?u=cf8fb76155baf1d37cdcafeb3&id=2ef70b0e24"
+               target="_blank"
+               title="Read previous issues">
+                SEE WHAT YOU'VE BEEN MISSING
+            </a>
+        </form>
+    </div>
+</body>
+</html>

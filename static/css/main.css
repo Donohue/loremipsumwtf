@@ -1,0 +1,89 @@
+body {
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', 'Helvetica', sans-serif;
+    background: url('../img/fuckyou.gif');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.signup_box {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    width: 320px;
+}
+
+.signup_box form {
+    width: 300px;
+    margin: 30px auto auto auto;
+}
+
+.signup_box form input {
+    background: none;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid rgb(198, 195, 192);
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 5px;
+    padding-bottom: 3px;
+    font-size:18px;
+    font-weight: normal;
+}
+
+.signup_box form input::-webkit-input-placeholder,
+.signup_box form input:-moz-placeholder,
+.signup_box form input::-moz-placeholder,
+.signup_box form input:-ms-input-placeholder {
+    color: rgb(60, 60, 60);
+}
+
+.signup_box form input[type="submit"] {
+    width: auto;
+    cursor: pointer;
+    outline: 0;
+    margin-top: 20px;
+    background-color: rgb(19, 40, 59);
+    border-radius: 5px;
+    border: 0;
+    padding: 10px 15px;
+    color: white;
+    font-size: 18px;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', 'Helvetica', sans-serif;
+    letter-spacing: 1px;
+}
+
+.previous_issues,
+.previous_issues:visited {
+    display: inline-block;
+    margin-top: 15px;
+    color: rgb(19, 39, 58);
+}
+
+.flashes {
+    padding: 0;
+}
+
+.flashes li {
+    list-style: none;
+    width: 300px;
+    margin: 35px auto 0px auto;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.flashes .success {
+    background-color: #dff0d8;
+    border: 1px solid #a3d48e;
+    color: #28471c;
+}
+
+.flashes .error {
+    border: 1px solid #d59595;
+    background: #f2dede;
+    color: #963b3b;
+}
+
