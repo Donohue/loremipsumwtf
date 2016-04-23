@@ -87,3 +87,30 @@ body {
     color: #963b3b;
 }
 
+.issues_box {
+    margin: 50px;
+    font-family: 'HelveticaNeue', 'Helvetica', sans-serif;
+}
+
+.back_home {
+    margin: 40px 0px;
+}
+
+.issue {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.issue_link {
+    margin-left: 35px;
+    color: black;
+}
+
+.pagination {
+    margin-top: 50px;
+}
+
+.pagination .link_button {
+    margin-right: 10px;
+    text-decoration: none;
+}

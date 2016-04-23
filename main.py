@@ -1,8 +1,9 @@
 import sys
 import os
 import requests
+import dateutil.parser
 from mailchimp import Mailchimp, Lists
-from flask import Flask, flash, render_template, redirect, request
+from flask import Flask, flash, url_for, render_template, redirect, request
 
 if not 'APP_SECRET_KEY' in os.environ:
     print 'Missing secret key'
@@ -51,4 +52,47 @@ def subscribe():
         print 'Error: %s' % e
         flash('Ooh something went wrong. Fucking internet. Try again in a second.', 'error')
     return redirect('/')
+
+@app.route('/issues')
+def issues():
+    limit = 10
+    page = request.args.get('page', 1)
+    try:
+        page = int(page)
+    except:
+        page = 1
+
+    if page < 1:
+        page = 1
+    
+    try:
+        issues = mailchimp.campaigns.list(start=(page-1), limit=limit+1)['data']
+    except Exception, e:
+        print '[Issues] Error: %s' % str(e)
+        flash('Ooh something went wrong. Fucking internet. Try again in a second.', 'error')
+        return redirect('/')
+    
+    next_page = None
+    previous_page = None
+
+    if len(issues) > limit:
+        issues.pop()
+        next_page = url_for('issues', page=page+1)
+
+    if page > 1:
+        previous_page = url_for('issues', page=page-1)
+
+    # Filter unsent issues
+    issues = [issue for issue in issues if issue['send_time']]
+    return render_template(
+        'issues.html',
+        issues=issues,
+        next_page=next_page,
+        previous_page=previous_page
+    )
+
+@app.template_filter('date_formatter')
+def date_formatter(date):
+    dt = dateutil.parser.parse(date)
+    return dt.strftime('%m/%d/%Y')
 

@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Lorem Ipsum – Issues</title>
+    <meta property="og:url" content="http://loremipsum.wtf"/>
+    <meta property="og:title" content="Lorem Ipsum – Issues"/>
+    <meta property="og:description" content="What Matters About What Doesn't Matter"/>
+    <meta property="og:image" content="http://loremipsum.wtf/static/img/newogimage.png"/>
+    <meta name="google-site-verification" content="SqI0ytoCCjU4FoCsU2WPY0zJNcfgsODQf8BUH9sx21c" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+</head>
+<body>
+    <div class="issues_box">
+        <img srcset="/static/img/header-image.png 1x, /static/img/header-image@2x.png 2x"/>
+        <div class="back_home">
+            <a class="link_button"
+               href="{{ url_for('homepage') }}"
+               title="Get on the list">
+                <img srcset="/static/img/subscribeBtn.png 1x, /static/img/subscribeBtn@2x.png 2x"/>
+            </a>
+        </div>
+        <div class="issues">
+            {% for issue in issues %}
+                <div class="issue">
+                    <span class="issue_date">{{ issue['send_time'] | date_formatter }}</span>
+                    <a class="issue_link" href="{{ issue['archive_url_long'] }}">{{ issue['subject'] }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% if previous_page %}
+                <a class="link_button"
+                   href="{{ previous_page }}"
+                   title="Back">
+                   <img srcset="/static/img/backBtn.png 1x, /static/img/backBtn@2x.png 2x"/>
+                </a>
+            {% endif %}
+            {% if next_page %}
+                <a class="link_button"
+                   href="{{ next_page }}"
+                   title="More pls"
+                   aria-label="More please">
+                   <img srcset="/static/img/nextBtn.png 1x, /static/img/nextBtn@2x.png 2x"/>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
