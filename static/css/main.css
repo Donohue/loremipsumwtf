@@ -8,6 +8,10 @@ body {
     user-select: none;
 }
 
+body.issues_mode {
+    background: white;
+}
+
 .signup_box {
     position: relative;
     top: 20px;
@@ -102,10 +106,8 @@ body {
 }
 
 .issues {
-    padding: 30px;
-    background-color: rgba(255,255,255,.6);
+    padding: 30px 0px;
     max-width: 420px;
-    border-radius: 4px;
 }
 
 .issue {
